@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tailwind CSS Example</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .bg-custom-image{
+      background-image:url(https://capigo-demo.pbminfotech.com/html-demo/images/banner-slider-img/slider01-slide-2.jpg);
+    }
+
+    @media screen and (max-width: 1200px){
+      .container{
+        display: none;
+      }
+    }
+
+
+    /* nav */
+    nav {
+    position: relative;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Navigation container */
+.nav-container {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100%;
+    width: 250px;
+    background: white;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    transition: right 0.3s ease-in-out;
+    padding-top: 20px;
+}
+
+.nav-container ul {
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+}
+
+.nav-container li {
+    width: 100%;
+    text-align: center;
+}
+
+/* Show menu when open */
+.nav-open {
+    right: 0;
+}
+
+#close-btn {
+    align-self: flex-end;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+
+/* Hide hamburger button on larger screens */
+/* @media screen and (min-width: 768px) {
+    #hamburger-btn {
+        display: none;
+    }
+} */
+@media screen and (max-width: 1200px){
+  .custom-hidden{
+      display: none;
+    }
+}
+@media screen and (min-width: 1200px) {
+    .nav-container {
+        position: relative;
+        top: auto;
+        right: auto;
+        height: auto;
+        width: auto;
+        background: transparent;
+        flex-direction: row;
+        padding-top: 0;
+        display: flex;
+    }
+
+    .nav-container ul {
+        flex-direction: row;
+        background: transparent;
+    }
+
+    .nav-container li {
+        width: auto;
+        text-align: left;
+    }
+    #hamburger-btn {
+        display: none;
+    }
+
+    #close-btn {
+        display: none;
+    }
+}
+
+
+/* third */
+
+@media screen and (min-width: 1200px) {
+
+}
+@keyframes verticalFill {
+  0% {
+    background-position: 0 100%;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+.container1 {
+      background-size: 100% 200%;
+      background-image: linear-gradient(to top, #4f46e5 50%, #3b82f6 50%);
+      background-position: 0 100%;
+      transition: background-position 0.5s ease-out;
+    }
+
+    .container1:hover {
+      animation: verticalFill 0.5s forwards;
+    }
+
+    .container1:hover::after {
+      animation: verticalFill 0.5s forwards;
+    }
+
+    .container1:not(:hover) {
+      animation: verticalFill 0.5s reverse forwards;
+    }
+    
+  </style>
+</head>
+<body>
+  <header class="bg-custom-image bg-cover bg-center h-screen w-full ">
+    <div class="container mx-auto flex justify-between">
+      <div class="left">
+        <ul class="flex space-x-4">
+          <li><a href="#" class="text-white">Los Angeles Gournadi, 1230 Barisal</a></li>
+        </ul>
+      </div>
+      <div class="right">
+        <ul class="flex space-x-4">
+          <li><a href="#"class="text-white">noreply@pbminfotech.com</a></li>
+          <li><a href="#"class="text-white">+(123) 1234-567-8901</a></li>
+        </ul>
+      </div>
+    </div>  
+    <nav class="border-gray-200 bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
+      <div class="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto p-5">
+          <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+              <img src="https://capigo-demo.pbminfotech.com/html-demo/images/white-logo.svg" class="h-8" alt="Logo" />
+          </a>
+          <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+              <button id="hamburger-btn" type="button" class="inline-flex items-center justify-center p-2 w-10 h-10 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-hamburger" aria-expanded="false">
+                  <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+                  </svg>
+              </button>
+              <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 custom-hidden">Get started</button>
+          </div>
+          <div class="nav-container" id="navbar-hamburger">
+              <button id="close-btn" type="button" class="text-gray-500 hover:text-gray-700 focus:outline-none dark:text-gray-400 dark:hover:text-white">
+                  <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                  </svg>
+              </button>
+              <ul class="flex flex-col md:flex-row gap-10 font-medium mt-4 md:mt-0 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
+                  <li>
+                      <a href="#" class="block py-2 px-3 text-white bg-blue-700 rounded dark:bg-blue-600" aria-current="page">HOME</a>
+                  </li>
+                  <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" class="flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"><svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                  </svg></button>
+                            <!-- Dropdown menu -->
+                            <div id="dropdownNavbar" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+                                <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
+                                  <li>
+                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                                  </li>
+                                  <li>
+                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+                                  </li>
+                                  <li>
+                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+                                  </li>
+                                </ul>
+                                <div class="py-1">
+                                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
+                                </div>
+                            </div>
+                        </li>
+                  <li>
+                      <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">PAGES</a>
+                  </li>
+                  <li>
+                      <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">SERVICES</a>
+                  </li>
+                  <li>
+                      <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">PROJECT</a>
+                  </li>
+                  <li>
+                    <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">BLOG</a>
+                </li>
+                <li>
+                  <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">CONTACT US</a>
+              </li>
+              <li>
+                <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">CONTACT US</a>
+            </li>
+              </ul>
+          </div>
+      </div>
+  </nav>
+    <!-- Commented out navigation for brevity -->
+    <div class="screen-text">
+      <div class="s-heading pt-28 pl-4">
+        <h3 class="h3-text inline-block mt-2 border border-transparent rounded-full text-lg text-center py-2 px-5 text-white bg-opacity-20 bg-white">IMPROVE YOUR ASPIRATIONS</h3>
+        <h1 class="h1-text text-7xl text-white">Acknowledge<br> the Unexpected.</h1>
+      </div>
+      <div class="sort-head mt-4">
+        <div class="line border-t border-white w-44 relative top-12 left-12"></div>
+        <div class="sort-text text-white pl-64 pt-10 text-lg leading-7">Devise and implement business Strategies <br> for in entire business or division</div>
+        <div class="btn-1 mt-6 ml-64">
+          <button class="border border-transparent w-48 h-12 py-4 text-center rounded-full bg-white text-gray-700 text-lg">Contact us</button>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- second-->
+  <section>
+    <article>
+      <div class="flex flex-wrap box-border justify-center  pb-32">
+        <div class="container1 w-full md:max-h-screen sm:w-1/4 lg:w-1/4 p-10 bg-white border border-gray-200 shadow dark:bg-gray-800 dark:border-gray-700">
+          <a href="#">
+            <h5 class="mb-2  text-sm sm:text-base tracking-tight dark:border-gray-900 py-4">WHAT WE DO</h5>
+          </a>
+          <h1 class="text-xl sm:text-2xl md:text-4xl pb-4 font-medium">Marketing & Advertising</h1>
+          <p class="text-xs sm:text-sm md:text-base text-gray-700 dark:text-gray-400">Consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+  
+        <div class="w-full sm:w-1/4 lg:w-1/4 p-10 bg-white border border-gray-200 shadow dark:bg-gray-800 dark:border-gray-700">
+          <a href="#">
+            <h5 class="mb-2 text-sm sm:text-base tracking-tight dark:border-gray-900 py-4">WHAT WE DO</h5>
+          </a>
+          <h1 class="text-xl sm:text-2xl md:text-4xl pb-4 font-medium">Marketing & Advertising</h1>
+          <p class="text-xs sm:text-sm md:text-base text-gray-700 dark:text-gray-400">Consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+  
+        <div class="w-full sm:w-1/4 lg:w-1/4 p-10 bg-white border border-gray-200 shadow dark:bg-gray-800 dark:border-gray-700">
+          <a href="#">
+            <h5 class="mb-2 text-sm sm:text-base tracking-tight dark:border-gray-900 py-4">WHAT WE DO</h5>
+          </a>
+          <h1 class="text-xl sm:text-2xl md:text-4xl pb-4 font-medium">Marketing & Advertising</h1>
+          <p class="text-xs sm:text-sm md:text-base text-gray-700 dark:text-gray-400">Consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        <!-- hidden md:block -->
+        <div class="w-full sm:w-1/4 lg:w-1/4 p-10 bg-white border border-gray-200 shadow dark:bg-gray-800 dark:border-gray-700 hidden md:block">
+          <a href="#">
+            <h5 class="mb-2 text-sm sm:text-base tracking-tight dark:border-gray-900 py-4">WHAT WE DO</h5>
+          </a>
+          <h1 class="text-xl sm:text-2xl md:text-4xl pb-4 font-medium">Marketing & Advertising</h1>
+          <p class="text-xs sm:text-sm md:text-base text-gray-700 dark:text-gray-400">Consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+      </div>
+    </article>
+  </section>
+  
+
+
+
+
+
+  <!-- section -->
+  <section>
+    <article>
+      <div class="container mx-auto flex flex-wrap justify-center">
+        <div class="left-content flex flex-col gap-8 w-full md:w-1/4 p-4">
+          <div class="flex flex-col items-start gap-2">
+            <h4 class="text-lg font-semibold">HAPPY CLIENT</h4>
+            <h1 class="text-4xl font-bold">300+</h1>
+            <div class="border-t border-gray-200 w-full my-2"></div>
+          </div>
+          <div class="flex flex-col items-start gap-2">
+            <h4 class="text-lg font-semibold">HAPPY CLIENT</h4>
+            <h1 class="text-4xl font-bold">300+</h1>
+            <div class="border-t border-gray-200 w-full my-2"></div>
+          </div>
+          <div class="flex flex-col items-start gap-2">
+            <h4 class="text-lg font-semibold">HAPPY CLIENT</h4>
+            <h1 class="text-4xl font-bold">300+</h1>
+            <div class="border-t border-gray-200 w-full my-2"></div>
+          </div>
+        </div>
+  
+        <div class="img-1 w-full md:w-1/2 flex justify-center p-4">
+          <img class="img-cl w-full h-auto object-cover" src="https://capigo-demo.pbminfotech.com/html-demo/images/homepage-01/img-01.jpg" alt="Image">
+        </div>
+  
+        <div class="right-content w-full md:w-1/4 p-4 flex flex-col gap-4">
+          <h4 class="text-lg font-semibold">WHO WE ARE</h4>
+          <h1 class="text-2xl md:text-3xl font-bold">Small businesses is Doob's area of expertise.</h1>
+          <div class="inpt flex flex-col gap-2">
+            <input type="checkbox" id="checkbox1" class="mr-2">
+            <label for="checkbox1" class="text-base">A good traveler has no fixed plan</label>
+            <p class="text-gray-700 dark:text-gray-400">Ded do eiusmod tempor incididunt ut labore et dolore aliqua. Ut enim ad minim veniam, quis nostrud.</p>
+          </div>
+          <div class="inp-2 flex flex-col gap-2">
+            <input type="checkbox" id="checkbox2" class="mr-2">
+            <label for="checkbox2" class="text-base">A good traveler has no fixed plan</label>
+            <p class="text-gray-700 dark:text-gray-400">Ded do eiusmod tempor incididunt ut labore et dolore aliqua. Ut enim ad minim veniam, quis nostrud.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+  </section>
+
+
+
+
+  <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const closeBtn = document.getElementById('close-btn');
+    const navbarHamburger = document.getElementById('navbar-hamburger');
+
+    hamburgerBtn.addEventListener('click', () => {
+        navbarHamburger.classList.add('nav-open');
+    });
+
+    closeBtn.addEventListener('click', () => {
+        navbarHamburger.classList.remove('nav-open');
+    });
+});
+
+
+
+
+
+
+  </script>
+</body>
+</html>
